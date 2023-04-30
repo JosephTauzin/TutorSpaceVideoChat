@@ -209,6 +209,9 @@ function setTippy(elem, content, placement, allowHTML = false) {
     });
 }
 
+const VideoEffects = OT.VideoEffect;
+
+
 // ####################################################
 // GET ROOM ID
 // ####################################################
@@ -471,10 +474,31 @@ function getPeerInfo() {
 // ENTER YOUR NAME | Enable/Disable AUDIO/VIDEO
 // ####################################################
 
+function hideDivOnErrorCondition() {
+    // Replace this condition with your actual condition
+    const condition = RoomURL.toString().includes('12345'); // if true, the div will be hidden
+
+    if (true) {
+        console.log('super true')
+        const errorDiv = document.getElementById('fullscreen');
+        errorDiv.style.display = 'none';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', hideDivOnErrorCondition);
+
 function whoAreYou() {
     console.log('04 ----> Who are you');
     sound('open');
-
+    
+    if(RoomURL.toString().includes('12345')){
+        console.log('Correct Room ID');
+        hideDivOnErrorCondition()
+    }
+    else{
+        console.log('Incorrect Room ID');
+       
+    }
     hide(loadingDiv);
     document.body.style.background = 'var(--body-bg)';
 
@@ -497,7 +521,7 @@ function whoAreYou() {
         allowOutsideClick: false,
         allowEscapeKey: false,
         background: swalBackground,
-        title: 'MiroTalk SFU',
+        title: 'TutorSpace Video',
         input: 'text',
         inputPlaceholder: 'Enter your name',
         inputValue: default_name,
@@ -788,7 +812,7 @@ function roomIsReady() {
     show(fileShareButton);
     BUTTONS.settings.lockRoomButton && show(lockRoomButton);
     BUTTONS.settings.lobbyButton && show(lobbyButton);
-    BUTTONS.main.aboutButton && show(aboutButton);
+   
     if (!DetectRTC.isMobileDevice) show(pinUnpinGridDiv);
     handleButtons();
     handleSelects();
@@ -1525,8 +1549,11 @@ function handleRoomClientEvents() {
             rc.stopRecording();
         }
         if (surveyActive) {
-            leaveFeedback();
+            //leaveFeedback();
+            window.open("https://www.tutorspace.app", "_self");
+            console.log('Feedback')
         } else {
+            window.open("https://www.tutorspace.app", "_self");
             openURL('/newroom');
         }
     });
@@ -1554,10 +1581,13 @@ function leaveFeedback() {
             popup: 'animate__animated animate__fadeOutUp',
         },
     }).then((result) => {
+        
         if (result.isConfirmed) {
-            openURL(url.survey);
+            //openURL(url.survey);
+            window.open("https://www.tutorspace.app");
         } else {
             openURL('/newroom');
+            window.open("https://www.tutorspace.app");
         }
     });
 }

@@ -13,4 +13,6 @@ RUN npm install
 COPY app app
 COPY public public
 
+EXPOSE 3010
+
 CMD npm start

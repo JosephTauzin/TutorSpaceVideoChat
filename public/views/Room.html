@@ -3,9 +3,9 @@
     <head>
         <!-- Title and Icon -->
 
-        <title>MiroTalk SFU - Room Video Calls, Messaging and Screen Sharing.</title>
-        <link rel="shortcut icon" href="../images/logo.svg" />
-        <link rel="apple-touch-icon" href="../images/logo.svg" />
+        <title>TutorSpace VideoChat - Room Video Calls, Messaging and Screen Sharing.</title>
+        <link rel="shortcut icon" href="../images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
 
         <!-- Meta Information -->
 
@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
-            content="MiroTalk SFU powered by WebRTC and mediasoup, Real-time Simple Secure Fast video calls, messaging and screen sharing capabilities in the browser."
+            content=">TutorSpace VideoChat powered by WebRTC and mediasoup, Real-time Simple Secure Fast video calls, messaging and screen sharing capabilities in the browser."
         />
         <meta
             name="keywords"
@@ -23,11 +23,11 @@
         <!-- https://ogp.me -->
 
         <meta property="og:type" content="app-webrtc" />
-        <meta property="og:site_name" content="MiroTalk SFU" />
+        <meta property="og:site_name" content=">TutorSpace VideoChat" />
         <meta property="og:title" content="Click the link to make a call." />
         <meta
             property="og:description"
-            content="MiroTalk SFU calling provides real-time video calls, messaging and screen sharing."
+            content=">TutorSpace VideoChat calling provides real-time video calls, messaging and screen sharing."
         />
         <meta property="og:image" content="https://sfu.mirotalk.com/images/mirotalksfu.png" />
 
@@ -81,6 +81,7 @@
         <script defer src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
         <script defer src="https://unpkg.com/@popperjs/core@2"></script>
         <script defer src="https://unpkg.com/tippy.js@6"></script>
+        <script src="https://my-server-path/vonage-video-effects.js"></script>
     </head>
     <body onload="initClient()">
         <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -89,9 +90,16 @@
             <h1>Loading</h1>
             <img src="../images/loader.gif" />
             <pre>
-Please allow the camera or microphone
-access to use this app.
+            Please allow the camera or microphone
+            access to use this app.
             </pre>
+        </div>
+
+        <div id="fullscreen">
+            <div id="error-message">
+                <h2>Error: Group ID is incorrect</h2>
+                <p style="color:black">Please try again by logging into <a href="https://www.tutorspace.app" style="color:black">tutorspace.app</a>.</p>
+            </div>
         </div>
 
         <section>
